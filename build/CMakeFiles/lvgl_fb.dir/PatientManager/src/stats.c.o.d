@@ -1,0 +1,28 @@
+CMakeFiles/lvgl_fb.dir/PatientManager/src/stats.c.o: \
+ /home/wz/codepath/LVGL/lvgl-arm/PatientManager/src/stats.c \
+ /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/include/stdc-predef.h \
+ /home/wz/codepath/LVGL/lvgl-arm/PatientManager/inc/stats.h \
+ /home/wz/codepath/LVGL/lvgl-arm/cJSON.h \
+ /home/wz/usr/local/arm/5.4.0/usr/lib/gcc/arm-none-linux-gnueabi/5.4.0/include/stddef.h \
+ /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/include/stdio.h \
+ /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/include/features.h \
+ /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/include/sys/cdefs.h \
+ /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/include/bits/wordsize.h \
+ /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/include/gnu/stubs.h \
+ /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/include/gnu/stubs-soft.h \
+ /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/include/bits/types.h \
+ /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/include/bits/typesizes.h \
+ /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/include/libio.h \
+ /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/include/_G_config.h \
+ /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/include/wchar.h \
+ /home/wz/usr/local/arm/5.4.0/usr/lib/gcc/arm-none-linux-gnueabi/5.4.0/include/stdarg.h \
+ /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/include/bits/stdio_lim.h \
+ /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/include/bits/sys_errlist.h \
+ /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/include/bits/stdio.h \
+ /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/include/string.h \
+ /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/include/xlocale.h \
+ /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/include/bits/string.h \
+ /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/include/bits/string2.h \
+ /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/include/stdlib.h \
+ /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/include/time.h \
+ /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/include/bits/time.h

@@ -1,0 +1,216 @@
+/* pages/index/index.wxss */
+
+.container {
+  padding-bottom: 300rpx;
+}
+
+/* ── 顶部标题栏 ── */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 120rpx;
+  padding: 0 var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  z-index: 100;
+  padding-top: constant(safe-area-inset-top);
+  padding-top: env(safe-area-inset-top);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.header-title {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.header-badge {
+  padding: 6rpx 20rpx;
+  border: 2rpx solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--radius-pill);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(4rpx);
+}
+
+/* ── 当前就诊患者卡片 ── */
+
+.current-patient-card {
+  margin-top: 136rpx;
+  position: relative;
+  text-align: center;
+  padding: var(--space-xl) var(--space-lg) var(--space-lg);
+  box-shadow: var(--shadow-primary);
+  overflow: hidden;
+}
+
+.accent-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6rpx;
+  background: linear-gradient(90deg, var(--color-gradient-start) 0%, var(--color-gradient-end) 100%);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.patient-name {
+  display: block;
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: var(--space-sm) 0 var(--space-xs);
+}
+
+.patient-id {
+  display: block;
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  color: var(--color-primary);
+  letter-spacing: 0.06em;
+}
+
+.patient-extra {
+  display: block;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  margin-top: var(--space-xs);
+}
+
+/* ── 统计数据行 ── */
+
+.stats-row {
+  margin-top: var(--space-md);
+}
+
+.stat-card {
+  background: #f0fdfa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6rpx;
+  padding: var(--space-md) var(--space-sm);
+  min-height: 148rpx;
+  justify-content: center;
+  border-radius: var(--radius-md);
+}
+
+.stat-label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.stat-value {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+/* ── 候诊队列 ── */
+
+.queue-section {
+  margin-top: var(--space-lg);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4rpx;
+}
+
+.section-title {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+}
+
+.section-more {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-tertiary);
+}
+
+.queue-list {
+  padding: var(--space-sm) var(--space-md);
+}
+
+.queue-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) 0;
+  position: relative;
+}
+
+.queue-order {
+  width: 52rpx;
+  height: 52rpx;
+  min-width: 52rpx;
+  border-radius: 50%;
+  background: #f3f4f3;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.queue-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4rpx;
+  flex: 1;
+  min-width: 0;
+}
+
+.queue-name {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.queue-age {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+}
+
+/* ── 底部操作按钮 ── */
+
+.bottom-actions {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12rpx);
+  padding: var(--space-md) var(--space-lg);
+  padding-bottom: calc(var(--space-md) + constant(safe-area-inset-bottom));
+  padding-bottom: calc(var(--space-md) + env(safe-area-inset-bottom));
+  box-shadow: 0 -2rpx 20rpx rgba(15, 118, 110, 0.06);
+  z-index: 99;
+}
+
+.actions-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.actions-grid .btn {
+  width: 100%;
+  margin: 0;
+}

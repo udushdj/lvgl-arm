@@ -1,0 +1,204 @@
+The system is: Linux - 4.4.0-26100-Microsoft - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /home/wz/usr/local/arm/5.4.0/usr/bin/arm-linux-gcc 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/home/wz/codepath/LVGL/lvgl-arm/build/CMakeFiles/3.22.1/CompilerIdC/a.out"
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /home/wz/codepath/LVGL/lvgl-arm/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_67204/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_67204.dir/build.make CMakeFiles/cmTC_67204.dir/build
+gmake[1]: Entering directory '/home/wz/codepath/LVGL/lvgl-arm/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_67204.dir/CMakeCCompilerABI.c.o
+/home/wz/usr/local/arm/5.4.0/usr/bin/arm-linux-gcc   -v -o CMakeFiles/cmTC_67204.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c
+Using built-in specs.
+COLLECT_GCC=/home/wz/usr/local/arm/5.4.0/usr/bin/arm-linux-gcc.br_real
+Target: arm-none-linux-gnueabi
+Configured with: ./configure --prefix=/home/geclab/buildroot-2016.11/output/host/usr --sysconfdir=/home/geclab/buildroot-2016.11/output/host/etc --enable-static --target=arm-none-linux-gnueabi --with-sysroot=/home/geclab/buildroot-2016.11/output/host/usr/arm-none-linux-gnueabi/sysroot --disable-__cxa_atexit --with-gnu-ld --disable-libssp --disable-multilib --with-gmp=/home/geclab/buildroot-2016.11/output/host/usr --with-mpc=/home/geclab/buildroot-2016.11/output/host/usr --with-mpfr=/home/geclab/buildroot-2016.11/output/host/usr --with-pkgversion='Buildroot 2016.11' --with-bugurl=http://bugs.buildroot.net/ --disable-libquadmath --enable-tls --disable-libmudflap --enable-threads --without-isl --without-cloog --with-float=soft --disable-decimal-float --with-abi=aapcs-linux --with-cpu=cortex-a15 --with-float=soft --with-mode=arm --enable-languages=c,c++,fortran --with-build-time-tools=/home/geclab/buildroot-2016.11/output/host/usr/arm-none-linux-gnueabi/bin --enable-shared --disable-libgomp
+Thread model: posix
+gcc version 5.4.0 (Buildroot 2016.11) 
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_67204.dir/CMakeCCompilerABI.c.o' '-c' '-mcpu=cortex-a15' '-mfloat-abi=soft' '-mabi=aapcs-linux' '-marm' '-mtls-dialect=gnu'
+ /home/wz/usr/local/arm/5.4.0/usr/bin/../libexec/gcc/arm-none-linux-gnueabi/5.4.0/cc1 -quiet -v -iprefix /home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/ -isysroot /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mcpu=cortex-a15 -mfloat-abi=soft -mabi=aapcs-linux -marm -mtls-dialect=gnu -auxbase-strip CMakeFiles/cmTC_67204.dir/CMakeCCompilerABI.c.o -version -o /tmp/ccuKd8d5.s
+GNU C11 (Buildroot 2016.11) version 5.4.0 (arm-none-linux-gnueabi)
+	compiled by GNU C version 4.8.4, GMP version 6.1.1, MPFR version 3.1.5, MPC version 1.0.3
+warning: GMP header version 6.1.1 differs from library version 6.2.1.
+warning: MPFR header version 3.1.5 differs from library version 4.1.0.
+warning: MPC header version 1.0.3 differs from library version 1.2.1.
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring duplicate directory "/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/../../lib/gcc/arm-none-linux-gnueabi/5.4.0/include"
+ignoring nonexistent directory "/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/local/include"
+ignoring duplicate directory "/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/../../lib/gcc/arm-none-linux-gnueabi/5.4.0/include-fixed"
+ignoring duplicate directory "/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/../../lib/gcc/arm-none-linux-gnueabi/5.4.0/../../../../arm-none-linux-gnueabi/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/include
+ /home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/include-fixed
+ /home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/../../../../arm-none-linux-gnueabi/include
+ /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/include
+End of search list.
+GNU C11 (Buildroot 2016.11) version 5.4.0 (arm-none-linux-gnueabi)
+	compiled by GNU C version 4.8.4, GMP version 6.1.1, MPFR version 3.1.5, MPC version 1.0.3
+warning: GMP header version 6.1.1 differs from library version 6.2.1.
+warning: MPFR header version 3.1.5 differs from library version 4.1.0.
+warning: MPC header version 1.0.3 differs from library version 1.2.1.
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: ac5196111f71937995d0c5c5084ce6a2
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_67204.dir/CMakeCCompilerABI.c.o' '-c' '-mcpu=cortex-a15' '-mfloat-abi=soft' '-mabi=aapcs-linux' '-marm' '-mtls-dialect=gnu'
+ /home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/../../../../arm-none-linux-gnueabi/bin/as -v -mcpu=cortex-a15 -mfloat-abi=soft -meabi=5 -o CMakeFiles/cmTC_67204.dir/CMakeCCompilerABI.c.o /tmp/ccuKd8d5.s
+GNU assembler version 2.26.1 (arm-none-linux-gnueabi) using BFD version (GNU Binutils) 2.26.1
+COMPILER_PATH=/home/wz/usr/local/arm/5.4.0/usr/bin/../libexec/gcc/arm-none-linux-gnueabi/5.4.0/:/home/wz/usr/local/arm/5.4.0/usr/bin/../libexec/gcc/:/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/../../../../arm-none-linux-gnueabi/bin/
+LIBRARY_PATH=/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/:/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/:/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/../../../../arm-none-linux-gnueabi/lib/:/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/lib/:/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_67204.dir/CMakeCCompilerABI.c.o' '-c' '-mcpu=cortex-a15' '-mfloat-abi=soft' '-mabi=aapcs-linux' '-marm' '-mtls-dialect=gnu'
+Linking C executable cmTC_67204
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_67204.dir/link.txt --verbose=1
+/home/wz/usr/local/arm/5.4.0/usr/bin/arm-linux-gcc  -v CMakeFiles/cmTC_67204.dir/CMakeCCompilerABI.c.o -o cmTC_67204 
+Using built-in specs.
+COLLECT_GCC=/home/wz/usr/local/arm/5.4.0/usr/bin/arm-linux-gcc.br_real
+COLLECT_LTO_WRAPPER=/home/wz/usr/local/arm/5.4.0/usr/bin/../libexec/gcc/arm-none-linux-gnueabi/5.4.0/lto-wrapper
+Target: arm-none-linux-gnueabi
+Configured with: ./configure --prefix=/home/geclab/buildroot-2016.11/output/host/usr --sysconfdir=/home/geclab/buildroot-2016.11/output/host/etc --enable-static --target=arm-none-linux-gnueabi --with-sysroot=/home/geclab/buildroot-2016.11/output/host/usr/arm-none-linux-gnueabi/sysroot --disable-__cxa_atexit --with-gnu-ld --disable-libssp --disable-multilib --with-gmp=/home/geclab/buildroot-2016.11/output/host/usr --with-mpc=/home/geclab/buildroot-2016.11/output/host/usr --with-mpfr=/home/geclab/buildroot-2016.11/output/host/usr --with-pkgversion='Buildroot 2016.11' --with-bugurl=http://bugs.buildroot.net/ --disable-libquadmath --enable-tls --disable-libmudflap --enable-threads --without-isl --without-cloog --with-float=soft --disable-decimal-float --with-abi=aapcs-linux --with-cpu=cortex-a15 --with-float=soft --with-mode=arm --enable-languages=c,c++,fortran --with-build-time-tools=/home/geclab/buildroot-2016.11/output/host/usr/arm-none-linux-gnueabi/bin --enable-shared --disable-libgomp
+Thread model: posix
+gcc version 5.4.0 (Buildroot 2016.11) 
+COMPILER_PATH=/home/wz/usr/local/arm/5.4.0/usr/bin/../libexec/gcc/arm-none-linux-gnueabi/5.4.0/:/home/wz/usr/local/arm/5.4.0/usr/bin/../libexec/gcc/:/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/../../../../arm-none-linux-gnueabi/bin/
+LIBRARY_PATH=/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/:/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/:/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/../../../../arm-none-linux-gnueabi/lib/:/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/lib/:/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_67204' '-mcpu=cortex-a15' '-mfloat-abi=soft' '-mabi=aapcs-linux' '-marm' '-mtls-dialect=gnu'
+ /home/wz/usr/local/arm/5.4.0/usr/bin/../libexec/gcc/arm-none-linux-gnueabi/5.4.0/collect2 -plugin /home/wz/usr/local/arm/5.4.0/usr/bin/../libexec/gcc/arm-none-linux-gnueabi/5.4.0/liblto_plugin.so -plugin-opt=/home/wz/usr/local/arm/5.4.0/usr/bin/../libexec/gcc/arm-none-linux-gnueabi/5.4.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccIup47H.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot --eh-frame-hdr -dynamic-linker /lib/ld-linux.so.3 -X -m armelf_linux_eabi -o cmTC_67204 /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/lib/crt1.o /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/lib/crti.o /home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/crtbegin.o -L/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0 -L/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc -L/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/../../../../arm-none-linux-gnueabi/lib -L/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/lib -L/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/lib CMakeFiles/cmTC_67204.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/crtend.o /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/lib/crtn.o
+gmake[1]: Leaving directory '/home/wz/codepath/LVGL/lvgl-arm/build/CMakeFiles/CMakeTmp'
+
+
+
+Parsed C implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/include]
+    add: [/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/include-fixed]
+    add: [/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/../../../../arm-none-linux-gnueabi/include]
+    add: [/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/include]
+  end of search list found
+  collapse include dir [/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/include] ==> [/home/wz/usr/local/arm/5.4.0/usr/lib/gcc/arm-none-linux-gnueabi/5.4.0/include]
+  collapse include dir [/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/include-fixed] ==> [/home/wz/usr/local/arm/5.4.0/usr/lib/gcc/arm-none-linux-gnueabi/5.4.0/include-fixed]
+  collapse include dir [/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/../../../../arm-none-linux-gnueabi/include] ==> [/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/include]
+  collapse include dir [/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/include] ==> [/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/include]
+  implicit include dirs: [/home/wz/usr/local/arm/5.4.0/usr/lib/gcc/arm-none-linux-gnueabi/5.4.0/include;/home/wz/usr/local/arm/5.4.0/usr/lib/gcc/arm-none-linux-gnueabi/5.4.0/include-fixed;/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/include;/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/include]
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(arm-linux-ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/wz/codepath/LVGL/lvgl-arm/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_67204/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_67204.dir/build.make CMakeFiles/cmTC_67204.dir/build]
+  ignore line: [gmake[1]: Entering directory '/home/wz/codepath/LVGL/lvgl-arm/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_67204.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/home/wz/usr/local/arm/5.4.0/usr/bin/arm-linux-gcc   -v -o CMakeFiles/cmTC_67204.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/home/wz/usr/local/arm/5.4.0/usr/bin/arm-linux-gcc.br_real]
+  ignore line: [Target: arm-none-linux-gnueabi]
+  ignore line: [Configured with: ./configure --prefix=/home/geclab/buildroot-2016.11/output/host/usr --sysconfdir=/home/geclab/buildroot-2016.11/output/host/etc --enable-static --target=arm-none-linux-gnueabi --with-sysroot=/home/geclab/buildroot-2016.11/output/host/usr/arm-none-linux-gnueabi/sysroot --disable-__cxa_atexit --with-gnu-ld --disable-libssp --disable-multilib --with-gmp=/home/geclab/buildroot-2016.11/output/host/usr --with-mpc=/home/geclab/buildroot-2016.11/output/host/usr --with-mpfr=/home/geclab/buildroot-2016.11/output/host/usr --with-pkgversion='Buildroot 2016.11' --with-bugurl=http://bugs.buildroot.net/ --disable-libquadmath --enable-tls --disable-libmudflap --enable-threads --without-isl --without-cloog --with-float=soft --disable-decimal-float --with-abi=aapcs-linux --with-cpu=cortex-a15 --with-float=soft --with-mode=arm --enable-languages=c,c++,fortran --with-build-time-tools=/home/geclab/buildroot-2016.11/output/host/usr/arm-none-linux-gnueabi/bin --enable-shared --disable-libgomp]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 5.4.0 (Buildroot 2016.11) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_67204.dir/CMakeCCompilerABI.c.o' '-c' '-mcpu=cortex-a15' '-mfloat-abi=soft' '-mabi=aapcs-linux' '-marm' '-mtls-dialect=gnu']
+  ignore line: [ /home/wz/usr/local/arm/5.4.0/usr/bin/../libexec/gcc/arm-none-linux-gnueabi/5.4.0/cc1 -quiet -v -iprefix /home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/ -isysroot /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mcpu=cortex-a15 -mfloat-abi=soft -mabi=aapcs-linux -marm -mtls-dialect=gnu -auxbase-strip CMakeFiles/cmTC_67204.dir/CMakeCCompilerABI.c.o -version -o /tmp/ccuKd8d5.s]
+  ignore line: [GNU C11 (Buildroot 2016.11) version 5.4.0 (arm-none-linux-gnueabi)]
+  ignore line: [	compiled by GNU C version 4.8.4  GMP version 6.1.1  MPFR version 3.1.5  MPC version 1.0.3]
+  ignore line: [warning: GMP header version 6.1.1 differs from library version 6.2.1.]
+  ignore line: [warning: MPFR header version 3.1.5 differs from library version 4.1.0.]
+  ignore line: [warning: MPC header version 1.0.3 differs from library version 1.2.1.]
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring duplicate directory "/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/../../lib/gcc/arm-none-linux-gnueabi/5.4.0/include"]
+  ignore line: [ignoring nonexistent directory "/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/local/include"]
+  ignore line: [ignoring duplicate directory "/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/../../lib/gcc/arm-none-linux-gnueabi/5.4.0/include-fixed"]
+  ignore line: [ignoring duplicate directory "/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/../../lib/gcc/arm-none-linux-gnueabi/5.4.0/../../../../arm-none-linux-gnueabi/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/include]
+  ignore line: [ /home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/include-fixed]
+  ignore line: [ /home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/../../../../arm-none-linux-gnueabi/include]
+  ignore line: [ /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/include]
+  ignore line: [End of search list.]
+  ignore line: [GNU C11 (Buildroot 2016.11) version 5.4.0 (arm-none-linux-gnueabi)]
+  ignore line: [	compiled by GNU C version 4.8.4  GMP version 6.1.1  MPFR version 3.1.5  MPC version 1.0.3]
+  ignore line: [warning: GMP header version 6.1.1 differs from library version 6.2.1.]
+  ignore line: [warning: MPFR header version 3.1.5 differs from library version 4.1.0.]
+  ignore line: [warning: MPC header version 1.0.3 differs from library version 1.2.1.]
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [Compiler executable checksum: ac5196111f71937995d0c5c5084ce6a2]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_67204.dir/CMakeCCompilerABI.c.o' '-c' '-mcpu=cortex-a15' '-mfloat-abi=soft' '-mabi=aapcs-linux' '-marm' '-mtls-dialect=gnu']
+  ignore line: [ /home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/../../../../arm-none-linux-gnueabi/bin/as -v -mcpu=cortex-a15 -mfloat-abi=soft -meabi=5 -o CMakeFiles/cmTC_67204.dir/CMakeCCompilerABI.c.o /tmp/ccuKd8d5.s]
+  ignore line: [GNU assembler version 2.26.1 (arm-none-linux-gnueabi) using BFD version (GNU Binutils) 2.26.1]
+  ignore line: [COMPILER_PATH=/home/wz/usr/local/arm/5.4.0/usr/bin/../libexec/gcc/arm-none-linux-gnueabi/5.4.0/:/home/wz/usr/local/arm/5.4.0/usr/bin/../libexec/gcc/:/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/../../../../arm-none-linux-gnueabi/bin/]
+  ignore line: [LIBRARY_PATH=/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/:/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/:/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/../../../../arm-none-linux-gnueabi/lib/:/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/lib/:/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_67204.dir/CMakeCCompilerABI.c.o' '-c' '-mcpu=cortex-a15' '-mfloat-abi=soft' '-mabi=aapcs-linux' '-marm' '-mtls-dialect=gnu']
+  ignore line: [Linking C executable cmTC_67204]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_67204.dir/link.txt --verbose=1]
+  ignore line: [/home/wz/usr/local/arm/5.4.0/usr/bin/arm-linux-gcc  -v CMakeFiles/cmTC_67204.dir/CMakeCCompilerABI.c.o -o cmTC_67204 ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/home/wz/usr/local/arm/5.4.0/usr/bin/arm-linux-gcc.br_real]
+  ignore line: [COLLECT_LTO_WRAPPER=/home/wz/usr/local/arm/5.4.0/usr/bin/../libexec/gcc/arm-none-linux-gnueabi/5.4.0/lto-wrapper]
+  ignore line: [Target: arm-none-linux-gnueabi]
+  ignore line: [Configured with: ./configure --prefix=/home/geclab/buildroot-2016.11/output/host/usr --sysconfdir=/home/geclab/buildroot-2016.11/output/host/etc --enable-static --target=arm-none-linux-gnueabi --with-sysroot=/home/geclab/buildroot-2016.11/output/host/usr/arm-none-linux-gnueabi/sysroot --disable-__cxa_atexit --with-gnu-ld --disable-libssp --disable-multilib --with-gmp=/home/geclab/buildroot-2016.11/output/host/usr --with-mpc=/home/geclab/buildroot-2016.11/output/host/usr --with-mpfr=/home/geclab/buildroot-2016.11/output/host/usr --with-pkgversion='Buildroot 2016.11' --with-bugurl=http://bugs.buildroot.net/ --disable-libquadmath --enable-tls --disable-libmudflap --enable-threads --without-isl --without-cloog --with-float=soft --disable-decimal-float --with-abi=aapcs-linux --with-cpu=cortex-a15 --with-float=soft --with-mode=arm --enable-languages=c,c++,fortran --with-build-time-tools=/home/geclab/buildroot-2016.11/output/host/usr/arm-none-linux-gnueabi/bin --enable-shared --disable-libgomp]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 5.4.0 (Buildroot 2016.11) ]
+  ignore line: [COMPILER_PATH=/home/wz/usr/local/arm/5.4.0/usr/bin/../libexec/gcc/arm-none-linux-gnueabi/5.4.0/:/home/wz/usr/local/arm/5.4.0/usr/bin/../libexec/gcc/:/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/../../../../arm-none-linux-gnueabi/bin/]
+  ignore line: [LIBRARY_PATH=/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/:/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/:/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/../../../../arm-none-linux-gnueabi/lib/:/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/lib/:/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_67204' '-mcpu=cortex-a15' '-mfloat-abi=soft' '-mabi=aapcs-linux' '-marm' '-mtls-dialect=gnu']
+  link line: [ /home/wz/usr/local/arm/5.4.0/usr/bin/../libexec/gcc/arm-none-linux-gnueabi/5.4.0/collect2 -plugin /home/wz/usr/local/arm/5.4.0/usr/bin/../libexec/gcc/arm-none-linux-gnueabi/5.4.0/liblto_plugin.so -plugin-opt=/home/wz/usr/local/arm/5.4.0/usr/bin/../libexec/gcc/arm-none-linux-gnueabi/5.4.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccIup47H.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot --eh-frame-hdr -dynamic-linker /lib/ld-linux.so.3 -X -m armelf_linux_eabi -o cmTC_67204 /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/lib/crt1.o /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/lib/crti.o /home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/crtbegin.o -L/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0 -L/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc -L/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/../../../../arm-none-linux-gnueabi/lib -L/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/lib -L/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/lib CMakeFiles/cmTC_67204.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/crtend.o /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/lib/crtn.o]
+    arg [/home/wz/usr/local/arm/5.4.0/usr/bin/../libexec/gcc/arm-none-linux-gnueabi/5.4.0/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/home/wz/usr/local/arm/5.4.0/usr/bin/../libexec/gcc/arm-none-linux-gnueabi/5.4.0/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/home/wz/usr/local/arm/5.4.0/usr/bin/../libexec/gcc/arm-none-linux-gnueabi/5.4.0/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccIup47H.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [--sysroot=/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib/ld-linux.so.3] ==> ignore
+    arg [-X] ==> ignore
+    arg [-m] ==> ignore
+    arg [armelf_linux_eabi] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_67204] ==> ignore
+    arg [/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/lib/crt1.o] ==> obj [/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/lib/crt1.o]
+    arg [/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/lib/crti.o] ==> obj [/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/lib/crti.o]
+    arg [/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/crtbegin.o] ==> obj [/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/crtbegin.o]
+    arg [-L/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0] ==> dir [/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0]
+    arg [-L/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc] ==> dir [/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc]
+    arg [-L/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/../../../../arm-none-linux-gnueabi/lib] ==> dir [/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/../../../../arm-none-linux-gnueabi/lib]
+    arg [-L/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/lib] ==> dir [/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/lib]
+    arg [-L/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/lib] ==> dir [/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/lib]
+    arg [CMakeFiles/cmTC_67204.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/crtend.o] ==> obj [/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/crtend.o]
+    arg [/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/lib/crtn.o] ==> obj [/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/lib/crtn.o]
+  collapse obj [/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/crtbegin.o] ==> [/home/wz/usr/local/arm/5.4.0/usr/lib/gcc/arm-none-linux-gnueabi/5.4.0/crtbegin.o]
+  collapse obj [/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/crtend.o] ==> [/home/wz/usr/local/arm/5.4.0/usr/lib/gcc/arm-none-linux-gnueabi/5.4.0/crtend.o]
+  collapse library dir [/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0] ==> [/home/wz/usr/local/arm/5.4.0/usr/lib/gcc/arm-none-linux-gnueabi/5.4.0]
+  collapse library dir [/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc] ==> [/home/wz/usr/local/arm/5.4.0/usr/lib/gcc]
+  collapse library dir [/home/wz/usr/local/arm/5.4.0/usr/bin/../lib/gcc/arm-none-linux-gnueabi/5.4.0/../../../../arm-none-linux-gnueabi/lib] ==> [/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/lib]
+  collapse library dir [/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/lib] ==> [/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/lib]
+  collapse library dir [/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/lib] ==> [/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/lib]
+  implicit libs: [gcc;gcc_s;c;gcc;gcc_s]
+  implicit objs: [/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/lib/crt1.o;/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/lib/crti.o;/home/wz/usr/local/arm/5.4.0/usr/lib/gcc/arm-none-linux-gnueabi/5.4.0/crtbegin.o;/home/wz/usr/local/arm/5.4.0/usr/lib/gcc/arm-none-linux-gnueabi/5.4.0/crtend.o;/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/lib/crtn.o]
+  implicit dirs: [/home/wz/usr/local/arm/5.4.0/usr/lib/gcc/arm-none-linux-gnueabi/5.4.0;/home/wz/usr/local/arm/5.4.0/usr/lib/gcc;/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/lib;/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/lib;/home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/lib]
+  implicit fwks: []
+
+

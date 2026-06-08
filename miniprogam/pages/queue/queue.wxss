@@ -1,0 +1,194 @@
+/* pages/queue/queue.wxss */
+
+/* ── 搜索栏 ── */
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  height: 108rpx;
+}
+
+.search-icon {
+  font-size: 34rpx;
+  color: var(--color-text-tertiary);
+}
+
+.search-input {
+  flex: 1;
+  height: 76rpx;
+  background: #f4f5f4;
+  border-radius: 38rpx;
+  padding: 0 var(--space-lg);
+  font-size: var(--font-size-sm);
+  border: 1rpx solid transparent;
+  transition: all 0.2s;
+}
+
+.search-input:focus {
+  border-color: var(--color-primary);
+  background: #fff;
+  box-shadow: 0 0 0 6rpx rgba(15, 118, 110, 0.08);
+}
+
+.search-btn {
+  width: 140rpx;
+  height: 76rpx;
+  margin: 0;
+  padding: 0;
+  font-size: var(--font-size-sm);
+  border-radius: 38rpx;
+}
+
+/* ── 工具栏 ── */
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: var(--space-xs) var(--space-sm);
+  height: 88rpx;
+}
+
+.toolbar-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  background: transparent;
+  border: none;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-pill);
+  transition: all 0.2s;
+  margin: 0;
+  height: auto;
+  line-height: 1;
+}
+
+.toolbar-btn::after {
+  border: none;
+}
+
+.toolbar-btn.active {
+  color: var(--color-primary);
+  background: #f0fdfa;
+  font-weight: 600;
+}
+
+.toolbar-icon {
+  font-size: 30rpx;
+}
+
+/* ── 患者列表 ── */
+
+.patient-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* ── 患者卡片 ── */
+
+.patient-card {
+  display: flex;
+  align-items: center;
+  padding: var(--space-md) var(--space-lg);
+  min-height: 136rpx;
+  transition: all 0.15s;
+}
+
+.patient-card:active {
+  transform: scale(0.99);
+  box-shadow: var(--shadow-md);
+}
+
+/* ── 编号徽章 ── */
+
+.patient-number {
+  width: 60rpx;
+  height: 60rpx;
+  min-width: 60rpx;
+  border-radius: 50%;
+  border: 2rpx solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+}
+
+.patient-number.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+/* ── 患者信息 ── */
+
+.patient-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4rpx;
+  flex: 1;
+  min-width: 0;
+  padding: 0 var(--space-md);
+}
+
+.patient-name {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.patient-id {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── 操作按钮 ── */
+
+.patient-actions {
+  display: flex;
+  flex-shrink: 0;
+  gap: var(--space-xs);
+  width: 168rpx;
+  justify-content: flex-end;
+}
+
+.action-btn {
+  width: 76rpx;
+  height: 76rpx;
+  min-width: 76rpx;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  transition: all 0.15s;
+  font-size: 30rpx;
+}
+
+.action-btn::after {
+  border: none;
+}
+
+.action-btn:active {
+  background: #f3f4f3;
+  transform: scale(0.94);
+}
+
+.action-btn.danger:active {
+  background: #fef2f2;
+}

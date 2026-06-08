@@ -1,0 +1,247 @@
+/* pages/add/add.wxss */
+
+.container {
+  padding-bottom: 200rpx;
+}
+
+/* ── 页面标题 ── */
+
+.page-header {
+  padding: var(--space-lg) 0;
+}
+
+.page-title {
+  display: block;
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: 0.02em;
+}
+
+.page-subtitle {
+  display: block;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-tertiary);
+  margin-top: 6rpx;
+}
+
+/* ── 表单卡片 ── */
+
+.form-card {
+  padding: var(--space-xl) var(--space-lg);
+}
+
+/* ── 表单字段 ── */
+
+.form-field {
+  position: relative;
+}
+
+.field-label-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-sm);
+}
+
+.field-label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.field-required {
+  color: var(--color-danger);
+  font-size: var(--font-size-lg);
+  line-height: 1;
+}
+
+.field-optional {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  background: #f3f4f3;
+  padding: 2rpx 12rpx;
+  border-radius: var(--radius-sm);
+}
+
+.field-input {
+  width: 100%;
+  height: 100rpx;
+  background: #f4f5f4;
+  border: 2rpx solid transparent;
+  border-radius: var(--radius-md);
+  padding: 0 var(--space-lg);
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+  transition: all 0.2s;
+}
+
+.field-input:focus {
+  background: #fff;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 6rpx rgba(15, 118, 110, 0.08);
+}
+
+.field-input.error {
+  border-color: var(--color-danger);
+}
+
+.field-input.error:focus {
+  box-shadow: 0 0 0 6rpx rgba(220, 38, 38, 0.08);
+}
+
+.error-text {
+  display: block;
+  margin-top: var(--space-xs);
+  font-size: var(--font-size-xs);
+  color: var(--color-danger);
+}
+
+/* ── 年龄选择器 ── */
+
+.age-selector {
+  display: flex;
+  align-items: center;
+  height: 100rpx;
+  background: #f4f5f4;
+  border: 2rpx solid transparent;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: all 0.2s;
+}
+
+.age-selector:focus-within {
+  border-color: var(--color-primary);
+  background: #fff;
+  box-shadow: 0 0 0 6rpx rgba(15, 118, 110, 0.08);
+}
+
+.age-btn {
+  flex: 0.7;
+  min-width: 0;
+  height: 100%;
+  min-height: 0;
+  line-height: 1;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36rpx;
+  font-weight: 300;
+  color: var(--color-primary);
+  transition: all 0.15s;
+}
+
+.age-btn::after {
+  display: none;
+}
+
+.age-btn:active {
+  background: #f0fdfa;
+}
+
+.age-btn-minus {
+  border-right: 2rpx solid var(--color-border);
+}
+
+.age-btn-plus {
+  border-left: 2rpx solid var(--color-border);
+}
+
+.age-display {
+  flex: 1.6;
+  min-width: 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 6rpx;
+  height: 100%;
+}
+
+.age-value {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 100rpx;
+}
+
+.age-unit {
+  font-size: var(--font-size-base);
+  color: var(--color-text-tertiary);
+  font-weight: 500;
+}
+
+/* ── 表单提示 ── */
+
+.form-helper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-lg);
+  background: #f0fdfa;
+  border-radius: var(--radius-md);
+  border: 1rpx solid #ccfbf1;
+}
+
+.form-helper .helper-icon {
+  font-size: 30rpx;
+  flex-shrink: 0;
+}
+
+.form-helper .helper-text {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+/* ── 底部操作按钮 ── */
+
+.bottom-actions {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12rpx);
+  padding: var(--space-lg);
+  padding-bottom: calc(var(--space-lg) + constant(safe-area-inset-bottom));
+  padding-bottom: calc(var(--space-lg) + env(safe-area-inset-bottom));
+  box-shadow: 0 -2rpx 20rpx rgba(15, 118, 110, 0.06);
+  display: flex;
+  gap: var(--space-md);
+  z-index: 99;
+}
+
+.btn-cancel {
+  flex: 0 0 38%;
+  height: 96rpx;
+  background: transparent;
+  border: 2rpx solid var(--color-border);
+  color: var(--color-text-secondary);
+  margin: 0;
+  border-radius: 48rpx;
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.btn-cancel::after {
+  border: none;
+}
+
+.btn-cancel:active {
+  background: #f3f4f3;
+}
+
+.btn-save {
+  flex: 1;
+  height: 96rpx;
+  box-shadow: 0 6rpx 20rpx rgba(15, 118, 110, 0.22);
+}

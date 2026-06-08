@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>医疗叫号系统 - 患者队列管理</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans SC",sans-serif;background:#f1f5f9;color:#1e293b;min-height:100vh}
+
+.header{background:linear-gradient(135deg,#0b5ed7,#3b82f6);color:#fff;padding:20px 32px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 12px rgba(11,94,215,.25);flex-wrap:wrap;gap:12px}
+.header h1{font-size:20px;font-weight:600;letter-spacing:.5px}
+.header .dept{font-size:14px;opacity:.85}
+.header-right{display:flex;align-items:center;gap:12px}
+.api-status{font-size:12px;padding:4px 10px;border-radius:12px;display:inline-block}
+.api-status.online{background:rgba(16,185,129,.3);color:#d1fae5}
+.api-status.offline{background:rgba(239,68,68,.3);color:#fecaca}
+
+.toolbar{display:flex;gap:12px;padding:16px 32px;background:#fff;border-bottom:1px solid #e2e8f0;flex-wrap:wrap;align-items:center}
+.toolbar .spacer{flex:1}
+
+.btn{padding:8px 18px;border-radius:8px;border:none;font-size:14px;font-weight:500;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:all .15s}
+.btn-primary{background:#0d6efd;color:#fff}
+.btn-primary:hover{background:#0b5ed7;box-shadow:0 2px 8px rgba(13,110,253,.35)}
+.btn-success{background:#10b981;color:#fff}
+.btn-success:hover{background:#059669}
+.btn-danger{background:#ef4444;color:#fff}
+.btn-danger:hover{background:#dc2626}
+.btn-ghost{background:#f1f5f9;color:#475569;border:1px solid #e2e8f0}
+.btn-ghost:hover{background:#e2e8f0}
+.btn-sm{padding:5px 12px;font-size:13px;border-radius:6px}
+
+.stats{display:flex;gap:20px;font-size:13px;color:#64748b}
+.stats span strong{color:#1e293b;font-size:16px}
+
+.stats-panel{margin:16px 32px;background:#fff;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow:hidden}
+.stats-panel-header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:linear-gradient(135deg,#c2410c,#f97316);color:#fff;cursor:pointer;user-select:none}
+.stats-panel-header h2{font-size:15px;font-weight:600}
+.stats-panel-header .toggle-icon{font-size:18px;transition:transform .3s}
+.stats-panel.collapsed .toggle-icon{transform:rotate(180deg)}
+.stats-panel-body{padding:20px;display:flex;gap:16px;flex-wrap:wrap;max-height:600px;overflow:hidden;transition:max-height .3s ease,padding .3s ease}
+.stats-panel.collapsed .stats-panel-body{max-height:0;padding:0 20px}
+.stat-card{flex:1;min-width:180px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px 20px;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.stat-card .stat-title{font-size:13px;color:#64748b;margin-bottom:8px}
+.stat-card .stat-value{font-size:28px;font-weight:700;color:#c2410c}
+.stat-card .stat-unit{font-size:14px;color:#94a3b8;margin-left:2px}
+.flow-section{width:100%;margin-top:4px}
+.flow-section h3{font-size:13px;color:#64748b;margin-bottom:12px}
+.flow-chart{display:flex;align-items:flex-end;gap:8px;height:120px;padding:0 8px;border-bottom:2px solid #e2e8f0}
+.flow-bar-wrap{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px}
+.flow-bar{width:100%;border-radius:4px 4px 0 0;background:linear-gradient(180deg,#f97316,#fb923c);transition:height .4s ease;min-height:4px}
+.flow-label{font-size:11px;color:#94a3b8}
+.flow-count{font-size:11px;color:#64748b;font-weight:600}
+
+.table-wrap{margin:16px 32px;background:#fff;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow:hidden}
+table{width:100%;border-collapse:collapse}
+thead{background:#f8fafc}
+th{padding:12px 16px;text-align:left;font-size:13px;font-weight:600;color:#64748b;border-bottom:2px solid #e2e8f0;white-space:nowrap}
+td{padding:12px 16px;font-size:14px;border-bottom:1px solid #f1f5f9;vertical-align:middle}
+tr:hover td{background:#f8fafc}
+td.actions{display:flex;gap:6px;flex-wrap:wrap}
+
+.badge{padding:3px 10px;border-radius:20px;font-size:12px;font-weight:500;display:inline-block}
+.badge-first{background:#dbeafe;color:#1d4ed8}
+.badge-secondary{background:#f1f5f9;color:#64748b}
+
+.drag-handle{cursor:grab;color:#94a3b8;margin-right:8px;font-size:18px;user-select:none}
+.drag-handle:active{cursor:grabbing}
+
+.empty-state{text-align:center;padding:60px 20px;color:#94a3b8}
+.empty-state .icon{font-size:48px;margin-bottom:12px}
+.empty-state p{font-size:15px}
+
+.modal-overlay{position:fixed;inset:0;background:rgba(15,23,42,.4);display:flex;align-items:center;justify-content:center;z-index:1000;animation:fadeIn .2s}
+.modal{background:#fff;border-radius:16px;padding:28px;width:440px;max-width:90vw;box-shadow:0 20px 60px rgba(0,0,0,.15);animation:slideUp .25s}
+.modal h3{font-size:18px;margin-bottom:20px;color:#0f172a}
+.modal .field{margin-bottom:16px}
+.modal label{display:block;font-size:13px;font-weight:500;color:#475569;margin-bottom:6px}
+.modal input{width:100%;padding:10px 14px;border:1px solid #cbd5e1;border-radius:8px;font-size:14px;outline:none;transition:border-color .15s}
+.modal input:focus{border-color:#3b82f6;box-shadow:0 0 0 3px rgba(59,130,246,.15)}
+.modal .btn-row{display:flex;gap:10px;justify-content:flex-end;margin-top:20px}
+
+.toast{position:fixed;bottom:24px;right:24px;background:#1e293b;color:#fff;padding:12px 20px;border-radius:10px;font-size:14px;z-index:2000;animation:slideIn .3s;box-shadow:0 4px 16px rgba(0,0,0,.2)}
+.toast.success{background:#059669}
+.toast.error{background:#dc2626}
+
+.sortable-drag{opacity:.5}
+
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideUp{from{transform:translateY(20px);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes slideIn{from{transform:translateX(50px);opacity:0}to{transform:translateX(0);opacity:1}}
+
+@media(max-width:768px){
+  .header{padding:16px 20px}
+  .toolbar{padding:12px 16px}
+  .table-wrap{margin:12px 12px}
+  th,td{padding:10px 12px;font-size:13px}
+  .stats{gap:12px}
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <h1>🏥 医疗叫号系统</h1>
+    <div class="dept">当前科室：B12-131</div>
+  </div>
+  <div class="header-right">
+    <span id="apiBadge" class="api-status offline">API: 检测中...</span>
+    <button class="btn btn-ghost" onclick="exportJSON()" style="color:#fff;border-color:rgba(255,255,255,.3)">📋 下载JSON</button>
+    <button class="btn btn-ghost" onclick="document.getElementById('importFile').click()" style="color:#fff;border-color:rgba(255,255,255,.3)">📥 导入JSON</button>
+    <input type="file" id="importFile" accept=".json" onchange="importJSON(this)" style="display:none">
+  </div>
+</div>
+
+<div class="toolbar">
+  <button class="btn btn-primary" onclick="openAddModal()">＋ 添加患者</button>
+  <button class="btn btn-success" onclick="pushToServer()">☁️ 同步到服务器</button>
+  <button class="btn btn-ghost" onclick="pushStatsToServer()">📊 推送统计</button>
+  <div class="spacer"></div>
+  <div class="stats">
+    <span>总人数：<strong id="statTotal">0</strong></span>
+    <span>当前叫号：<strong id="statCurrent">—</strong></span>
+    <span>等待中：<strong id="statWaiting">0</strong></span>
+  </div>
+</div>
+
+<div class="stats-panel" id="statsPanel">
+  <div class="stats-panel-header" onclick="toggleStatsPanel()">
+    <h2>📊 数据统计</h2>
+    <span class="toggle-icon">▼</span>
+  </div>
+  <div class="stats-panel-body">
+    <div class="stat-card">
+      <div class="stat-title">已就诊</div>
+      <div><span class="stat-value" id="statCalled">0</span><span class="stat-unit">人</span></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-title">平均等待</div>
+      <div><span class="stat-value" id="statAvgWait">0</span><span class="stat-unit">分钟</span></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-title">当前排队</div>
+      <div><span class="stat-value" id="statQueue">0</span><span class="stat-unit">人</span></div>
+    </div>
+    <div class="flow-section">
+      <h3>近8小时流量</h3>
+      <div class="flow-chart" id="flowChart"></div>
+    </div>
+  </div>
+</div>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th style="width:40px"></th>
+        <th style="width:50px">序号</th>
+        <th>患者编号</th>
+        <th>姓名</th>
+        <th>身份证号</th>
+        <th>年龄</th>
+        <th style="width:180px">操作</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+</div>
+
+<div class="modal-overlay" id="modalOverlay" style="display:none" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <h3 id="modalTitle">添加患者</h3>
+    <input type="hidden" id="editIndex" value="-1">
+    <div class="field"><label>患者编号（Patient_ID）</label><input type="number" id="fieldID" placeholder="例如：1011"></div>
+    <div class="field"><label>姓名</label><input type="text" id="fieldName" placeholder="例如：王小明"></div>
+    <div class="field"><label>身份证号</label><input type="text" id="fieldIDNumber" placeholder="例如：440101200001011234"></div>
+    <div class="field"><label>年龄</label><input type="number" id="fieldAge" placeholder="例如：35" min="0" max="150"></div>
+    <div class="btn-row">
+      <button class="btn btn-ghost" onclick="closeModal()">取消</button>
+      <button class="btn btn-primary" onclick="savePatient()">保存</button>
+    </div>
+  </div>
+</div>
+
+<div id="toastContainer"></div>
+
+<script>
+const API_URL = '/api.php';
+const STATS_URL = '/stats.json';
+let patients = [];
+let apiAvailable = false;
+
+let eventQueue = [];
+let trackingHeadId = -1;
+let trackingHeadName = '';
+let trackingStartTime = 0;
+
+function loadEventQueue(){
+  try{
+    const raw = localStorage.getItem('medical_event_queue');
+    if(raw) eventQueue = JSON.parse(raw);
+  }catch(e){ eventQueue = []; }
+  trackingHeadId = parseInt(localStorage.getItem('medical_tracking_head_id') || '-1');
+  trackingHeadName = localStorage.getItem('medical_tracking_head_name') || '';
+  trackingStartTime = parseInt(localStorage.getItem('medical_tracking_start_time') || '0');
+}
+
+function saveEventQueue(){
+  localStorage.setItem('medical_event_queue', JSON.stringify(eventQueue));
+  localStorage.setItem('medical_tracking_head_id', String(trackingHeadId));
+  localStorage.setItem('medical_tracking_head_name', trackingHeadName);
+  localStorage.setItem('medical_tracking_start_time', String(trackingStartTime));
+}
+
+function updateHeadTracking(){
+  function pad2(n){ return String(n).padStart(2, '0') }
+  function fmtTime(ts){ var d=new Date(ts); return pad2(d.getHours())+':'+pad2(d.getMinutes()) }
+  function fmtDate(ts){ var d=new Date(ts); return d.getFullYear()+'-'+pad2(d.getMonth()+1)+'-'+pad2(d.getDate()) }
+
+  if(patients.length === 0){
+    if(trackingHeadId > 0 && trackingStartTime > 0){
+      const now = Date.now();
+      const durationSec = Math.round((now - trackingStartTime) / 1000);
+      eventQueue.push({
+        id: trackingHeadId,
+        name: trackingHeadName,
+        start_time: fmtTime(trackingStartTime),
+        end_time: fmtTime(now),
+        date: fmtDate(now),
+        duration_min: Math.round(durationSec / 60),
+        end_hour: new Date(now).getHours()
+      });
+      saveEventQueue();
+      trackingHeadId = -1;
+      trackingHeadName = '';
+      trackingStartTime = 0;
+    }
+    return;
+  }
+  const headId = patients[0].Patient_ID;
+  if(headId === trackingHeadId) return;
+  if(trackingHeadId > 0 && trackingStartTime > 0){
+    const now = Date.now();
+    const durationSec = Math.round((now - trackingStartTime) / 1000);
+    eventQueue.push({
+      id: trackingHeadId,
+      name: trackingHeadName,
+      start_time: fmtTime(trackingStartTime),
+      end_time: fmtTime(now),
+      date: fmtDate(now),
+      duration_min: Math.round(durationSec / 60),
+      end_hour: new Date(now).getHours()
+    });
+    saveEventQueue();
+    console.log('[EVENT] 患者 ' + trackingHeadId + ' (' + trackingHeadName + ') 就诊完成, 耗时 ' + Math.round(durationSec/60) + '分钟');
+  }
+  trackingHeadId = headId;
+  trackingHeadName = patients[0].name;
+  trackingStartTime = Date.now();
+  saveEventQueue();
+}
+
+function computeStatsJSON(){
+  const todayCalled = eventQueue.length;
+  let totalMin = 0;
+  for(const ev of eventQueue){ totalMin += ev.duration_min || 0; }
+  const avgMin = todayCalled > 0 ? Math.round(totalMin / todayCalled) : 0;
+
+  const now = new Date();
+  const curHour = now.getHours();
+  const startHour = (curHour - 7 + 24) % 24;
+  const hourly = [0,0,0,0,0,0,0,0];
+  for(const ev of eventQueue){
+    const h = ev.end_hour;
+    for(let i = 0; i < 8; i++){
+      const slotHour = (startHour + i) % 24;
+      if(h === slotHour){
+        hourly[i]++;
+        break;
+      }
+    }
+  }
+
+  const recentEvents = eventQueue.slice(-20).reverse().map(ev => ({
+    id: ev.id,
+    name: ev.name,
+    start_time: ev.start_time || '',
+    end_time: ev.end_time || '',
+    date: ev.date || '',
+    duration_min: ev.duration_min || 0,
+    end_hour: ev.end_hour
+  }));
+
+  return {
+    today_called: todayCalled,
+    avg_wait_min: avgMin,
+    hourly_calls: hourly,
+    recent_events: recentEvents
+  };
+}
+
+async function pushStatsToServer(){
+  if(!apiAvailable){
+    showToast('API不可用，无法推送统计','error');
+    return;
+  }
+  const stats = computeStatsJSON();
+  try{
+    const resp = await fetch(API_URL + '?target=stats', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(stats)
+    });
+    if(!resp.ok) throw new Error('HTTP '+resp.status);
+    const result = await resp.json();
+    showToast('统计已推送: ' + stats.today_called + '人已就诊','success');
+    console.log('[STATS] pushed:', stats);
+  }catch(e){
+    showToast('推送统计失败: ' + e.message,'error');
+  }
+}
+
+function toggleStatsPanel(){
+  document.getElementById('statsPanel').classList.toggle('collapsed');
+}
+
+function renderStats(){
+  const stats = computeStatsJSON();
+  document.getElementById('statCalled').textContent = stats.today_called;
+  document.getElementById('statAvgWait').textContent = stats.avg_wait_min;
+  document.getElementById('statQueue').textContent = patients.length;
+
+  const chart = document.getElementById('flowChart');
+  const hours = stats.hourly_calls || [];
+  const chartH = 100;
+  let maxVal = 1;
+  for(let i = 0; i < 8; i++){ if(hours[i] > maxVal) maxVal = hours[i]; }
+
+  const now = new Date();
+  const curHour = now.getHours();
+  const startHour = (curHour - 7 + 24) % 24;
+
+  let html = '';
+  for(let i = 0; i < 8; i++){
+    const val = hours[i] || 0;
+    const barH = maxVal > 0 ? Math.max(4, val / maxVal * chartH) : 4;
+    html += '<div class="flow-bar-wrap">' +
+      '<span class="flow-count">' + val + '</span>' +
+      '<div class="flow-bar" style="height:' + barH + 'px"></div>' +
+      '<span class="flow-label">' + ((startHour + i) % 24) + '时</span>' +
+      '</div>';
+  }
+  chart.innerHTML = html;
+}
+
+async function loadFromServer(){
+  const badge = document.getElementById('apiBadge');
+  try{
+    const resp = await fetch(API_URL, { method: 'GET' });
+    if(!resp.ok) throw new Error('HTTP '+resp.status);
+    const data = await resp.json();
+    if(!Array.isArray(data)) throw new Error('JSON格式错误');
+    patients = data;
+    apiAvailable = true;
+    badge.textContent = 'API: 在线 \u2713';
+    badge.className = 'api-status online';
+    updateHeadTracking();
+    render();
+    pushStatsToServer();
+  }catch(e){
+    apiAvailable = false;
+    badge.textContent = 'API: 离线 - 使用本地缓存';
+    badge.className = 'api-status offline';
+    loadLocalFallback();
+  }
+}
+
+function loadLocalFallback(){
+  const raw = localStorage.getItem('medical_patient_queue');
+  if(raw){ try{ patients = JSON.parse(raw) }catch(e){ patients = [] } }
+  if(patients.length === 0){
+    patients = [
+      {Patient_ID:1001, name:'王x', ID_number:'440101199001011234', age:35},
+      {Patient_ID:1002, name:'李x', ID_number:'440101199202023456', age:28},
+      {Patient_ID:1003, name:'张x', ID_number:'440101198512121111', age:42},
+      {Patient_ID:1004, name:'刘x', ID_number:'440101199607078888', age:19},
+      {Patient_ID:1005, name:'陈x', ID_number:'440101200005059999', age:55},
+      {Patient_ID:1006, name:'杨x', ID_number:'440101198809093333', age:31},
+      {Patient_ID:1007, name:'黄x', ID_number:'440101199912121234', age:24},
+      {Patient_ID:1008, name:'赵x', ID_number:'440101200208088888', age:17},
+      {Patient_ID:1009, name:'吴x', ID_number:'440101199511113456', age:63},
+      {Patient_ID:1010, name:'徐x', ID_number:'440101200301017890', age:27}
+    ];
+  }
+  updateHeadTracking();
+  render();
+}
+
+function saveLocal(){ localStorage.setItem('medical_patient_queue', JSON.stringify(patients)) }
+
+async function pushToServer(){
+  if(!apiAvailable){ showToast('API不可用，无法同步','error'); return; }
+  try{
+    const resp = await fetch(API_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(patients) });
+    if(!resp.ok) throw new Error('HTTP '+resp.status);
+    const result = await resp.json();
+    updateHeadTracking();
+    pushStatsToServer();
+    showToast('已同步 '+result.count+' 名患者到服务器','success');
+  }catch(e){ showToast('同步失败: '+e.message,'error') }
+}
+
+function render(){
+  const tbody = document.getElementById('tableBody');
+  if(patients.length===0){
+    tbody.innerHTML = '<tr><td colspan="7"><div class="empty-state"><div class="icon">📋</div><p>暂无患者列表</p></div></td></tr>';
+  }else{
+    tbody.innerHTML = patients.map((p,i) => {
+      const isFirst = i===0;
+      return '<tr draggable="true" data-index="' + i + '">' +
+        '<td><span class="drag-handle" title="拖拽排序">⋮⋮</span></td>' +
+        '<td>' + (isFirst ? '<span class="badge badge-first">当前</span>' : '<span class="badge badge-secondary">第'+(i+1)+'位</span>') + '</td>' +
+        '<td><strong>' + p.Patient_ID + '</strong></td>' +
+        '<td>' + escHtml(p.name) + '</td>' +
+        '<td style="font-family:monospace;font-size:13px;color:#64748b">' + escHtml(p.ID_number) + '</td>' +
+        '<td>' + p.age + ' 岁</td>' +
+        '<td class="actions">' +
+          '<button class="btn btn-sm btn-ghost" onclick="openEditModal(' + i + ')">✏️ 编辑</button>' +
+          '<button class="btn btn-sm btn-ghost" onclick="moveToTop(' + i + ')">📌 置顶</button>' +
+          '<button class="btn btn-sm btn-danger" onclick="deletePatient(' + i + ')">🗑</button>' +
+        '</td>' +
+      '</tr>';
+    }).join('');
+  }
+  document.getElementById('statTotal').textContent = patients.length;
+  if(patients.length>0){
+    document.getElementById('statCurrent').textContent = patients[0].Patient_ID;
+    document.getElementById('statWaiting').textContent = patients.length-1;
+  }else{
+    document.getElementById('statCurrent').textContent = '—';
+    document.getElementById('statWaiting').textContent = '0';
+  }
+  saveLocal();
+  initDrag();
+  renderStats();
+}
+
+function escHtml(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;') }
+
+function initDrag(){
+  document.querySelectorAll('tr[draggable]').forEach(r => {
+    let dragIdx = -1;
+    r.addEventListener('dragstart', e => { dragIdx = parseInt(r.dataset.index); r.classList.add('sortable-drag'); e.dataTransfer.effectAllowed = 'move' });
+    r.addEventListener('dragend', e => { r.classList.remove('sortable-drag') });
+    r.addEventListener('dragover', e => { e.preventDefault(); e.dataTransfer.dropEffect = 'move' });
+    r.addEventListener('drop', e => {
+      e.preventDefault();
+      const targetIdx = parseInt(r.dataset.index);
+      if(dragIdx>=0 && dragIdx!==targetIdx){ const [moved] = patients.splice(dragIdx,1); patients.splice(targetIdx,0,moved); render(); showToast('排序已更新','success') }
+      dragIdx = -1;
+    });
+  });
+}
+
+function openAddModal(){
+  document.getElementById('modalTitle').textContent = '添加患者';
+  document.getElementById('editIndex').value = '-1';
+  document.getElementById('fieldID').value = '';
+  document.getElementById('fieldName').value = '';
+  document.getElementById('fieldIDNumber').value = '';
+  document.getElementById('fieldAge').value = '';
+  document.getElementById('modalOverlay').style.display = 'flex';
+  document.getElementById('fieldName').focus();
+}
+
+function openEditModal(idx){
+  const p = patients[idx];
+  document.getElementById('modalTitle').textContent = '编辑患者';
+  document.getElementById('editIndex').value = idx;
+  document.getElementById('fieldID').value = p.Patient_ID;
+  document.getElementById('fieldName').value = p.name;
+  document.getElementById('fieldIDNumber').value = p.ID_number;
+  document.getElementById('fieldAge').value = p.age;
+  document.getElementById('modalOverlay').style.display = 'flex';
+}
+
+function closeModal(){ document.getElementById('modalOverlay').style.display = 'none' }
+
+function savePatient(){
+  const editIdx = parseInt(document.getElementById('editIndex').value);
+  const id = parseInt(document.getElementById('fieldID').value);
+  const name = document.getElementById('fieldName').value.trim();
+  const idNumber = document.getElementById('fieldIDNumber').value.trim();
+  const age = parseInt(document.getElementById('fieldAge').value);
+  if(!id||!name||!idNumber||!age){ showToast('请填写所有字段','error'); return; }
+  if(idNumber.length!==18){ showToast('身份证号应为18位','error'); return; }
+  const dup = patients.find((p,i) => p.Patient_ID===id && i!==editIdx);
+  if(dup){ showToast('患者编号已存在','error'); return; }
+  const patient = { Patient_ID:id, name, ID_number:idNumber, age };
+  if(editIdx>=0){ patients[editIdx] = patient; showToast('患者信息已更新','success') }
+  else{ patients.push(patient); showToast('患者已添加','success') }
+  render(); closeModal();
+}
+
+function deletePatient(idx){
+  const p = patients[idx];
+  if(!confirm('确定删除患者「' + p.name + '(编号:' + p.Patient_ID + ')？')) return;
+  const wasFirst = (idx === 0);
+  patients.splice(idx,1);
+  if(wasFirst){ updateHeadTracking(); }
+  render();
+  pushStatsToServer();
+  showToast('已删除：'+p.name,'success');
+}
+
+function moveToTop(idx){
+  if(idx===0) return;
+  const [moved] = patients.splice(idx,1); patients.unshift(moved);
+  updateHeadTracking();
+  render();
+  pushStatsToServer();
+  showToast(moved.name+' 已置顶','success');
+}
+
+function exportJSON(){
+  const json = JSON.stringify(patients, null, 2);
+  const blob = new Blob([json],{type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = 'patient_queue.json'; a.click();
+  URL.revokeObjectURL(a.href);
+  showToast('JSON文件已下载','success');
+}
+
+function importJSON(input){
+  const file = input.files[0]; if(!file) return;
+  const reader = new FileReader();
+  reader.onload = function(e){
+    try{
+      const data = JSON.parse(e.target.result);
+      if(!Array.isArray(data)) throw new Error('格式错误');
+      for(const item of data){ if(!item.Patient_ID||!item.name||!item.ID_number||item.age===undefined) throw new Error('字段缺失') }
+      patients = data; updateHeadTracking(); render();
+      pushStatsToServer();
+      showToast('成功导入 '+data.length+' 名患者','success');
+    }catch(err){ showToast('JSON格式不正确：'+err.message,'error') }
+  };
+  reader.readAsText(file); input.value = '';
+}
+
+function showToast(msg,type){
+  const el = document.createElement('div');
+  el.className = 'toast '+(type||''); el.textContent = msg;
+  document.getElementById('toastContainer').appendChild(el);
+  setTimeout(function(){el.remove()}, 2500);
+}
+
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModal() });
+loadEventQueue();
+loadFromServer();
+</script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!--pages/stats/stats.wxml-->
+<view class="container">
+  <!-- 汇总卡片 -->
+  <view class="summary-cards flex gap-md">
+    <view class="summary-card card-compact flex-1">
+      <text class="card-icon">📅</text>
+      <text class="card-label text-secondary">今日已叫号</text>
+      <text class="card-value text-blue text-bold">{{stats.today_called || 0}}</text>
+    </view>
+    <view class="summary-card card-compact flex-1">
+      <text class="card-icon">⏱️</text>
+      <text class="card-label text-secondary">平均等待</text>
+      <text class="card-value text-bold text-warning">{{stats.avg_wait_min || 0}}分</text>
+    </view>
+    <view class="summary-card card-compact flex-1">
+      <text class="card-icon">👥</text>
+      <text class="card-label text-secondary">当前排队</text>
+      <text class="card-value text-bold text-success">{{queueSize}}</text>
+    </view>
+  </view>
+
+  <!-- 趋势图表 -->
+  <view class="chart-card card mt-lg">
+    <text class="chart-title text-bold">近8小时就诊趋势</text>
+
+    <view class="bar-chart mt-md">
+      <!-- 图表区域 -->
+      <view class="chart-area">
+        <!-- 网格线 -->
+        <view class="grid-lines">
+          <view class="grid-line" wx:for="{{5}}" wx:key="*this"></view>
+        </view>
+
+        <!-- 柱状图 -->
+        <view class="bars">
+          <view 
+            class="bar-wrapper" 
+            wx:for="{{barData}}" 
+            wx:key="hour"
+          >
+            <view 
+              class="bar" 
+              style="height: {{item.height}}rpx;"
+            ></view>
+            <text class="x-label">{{item.hour}}:00</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 就诊记录 -->
+  <view class="records-section mt-lg">
+    <text class="section-title text-bold mb-md">就诊记录</text>
+
+    <view class="records-list card">
+      <view 
+        class="record-item" 
+        wx:for="{{events}}" 
+        wx:key="id"
+      >
+        <view class="record-icon">
+          <text class="check-icon">✅</text>
+        </view>
+
+        <view class="record-info flex-1">
+          <text class="record-patient text-bold">{{item.name}} · #{{item.id}}</text>
+          <text class="record-date text-secondary">{{item.date}}</text>
+        </view>
+
+        <text class="record-time text-secondary">{{item.start_time}}~{{item.end_time}}</text>
+
+        <view class="divider" wx:if="{{index < events.length - 1}}"></view>
+      </view>
+
+      <view wx:if="{{events.length === 0}}" class="empty-state">
+        <text>暂无就诊记录</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- FAB 刷新按钮 -->
+  <view class="refresh-btn" bindtap="onRefresh">
+    <text class="refresh-icon">🔄</text>
+  </view>
+</view>

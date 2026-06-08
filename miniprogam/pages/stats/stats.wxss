@@ -1,0 +1,215 @@
+/* pages/stats/stats.wxss */
+
+.container {
+  padding-bottom: 160rpx;
+}
+
+/* ── 汇总卡片 ── */
+
+.summary-cards {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.summary-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6rpx;
+  padding: var(--space-md);
+  min-height: 180rpx;
+  position: relative;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.card-icon {
+  font-size: 44rpx;
+}
+
+.card-label {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  margin-top: auto;
+}
+
+.card-value {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+}
+
+/* ── 趋势图表 ── */
+
+.chart-card {
+  padding: var(--space-lg);
+}
+
+.chart-title {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+}
+
+.bar-chart {
+  display: flex;
+  margin-top: var(--space-lg);
+  height: 340rpx;
+}
+
+.chart-area {
+  flex: 1;
+  position: relative;
+}
+
+.grid-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 44rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.grid-line {
+  height: 1rpx;
+  background: var(--color-border);
+  border-radius: 1rpx;
+}
+
+.bars {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 100%;
+  padding-bottom: 44rpx;
+  gap: 6rpx;
+}
+
+.bar-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.bar {
+  width: 100%;
+  max-width: 44rpx;
+  background: linear-gradient(180deg, #14b8a6 0%, #5eead4 100%);
+  border-radius: 6rpx 6rpx 0 0;
+  transition: all 0.3s;
+  animation: bar-grow 0.5s ease-out;
+}
+
+@keyframes bar-grow {
+  from { height: 0 !important; }
+}
+
+.x-label {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  margin-top: 6rpx;
+  white-space: nowrap;
+}
+
+/* ── 就诊记录 ── */
+
+.records-section {
+  margin-top: var(--space-lg);
+}
+
+.section-title {
+  display: block;
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  margin-bottom: var(--space-md);
+}
+
+.records-list {
+  padding: var(--space-sm) var(--space-md);
+}
+
+.record-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) 0;
+  position: relative;
+}
+
+.record-icon {
+  width: 44rpx;
+  height: 44rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: #ecfdf5;
+  border-radius: 50%;
+}
+
+.check-icon {
+  font-size: 28rpx;
+}
+
+.record-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4rpx;
+}
+
+.record-patient {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+}
+
+.record-date {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+}
+
+.record-time {
+  font-size: var(--font-size-sm);
+  font-family: "SF Mono", "Menlo", monospace;
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+}
+
+.record-item .divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+/* ── FAB 刷新按钮 ── */
+
+.refresh-btn {
+  position: fixed;
+  bottom: 40rpx;
+  right: 32rpx;
+  width: 104rpx;
+  height: 104rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  box-shadow: 0 8rpx 28rpx rgba(15, 118, 110, 0.30);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  z-index: 10;
+}
+
+.refresh-btn:active {
+  transform: scale(0.93);
+  box-shadow: 0 4rpx 12rpx rgba(15, 118, 110, 0.20);
+}
+
+.refresh-icon {
+  font-size: 44rpx;
+}

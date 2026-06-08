@@ -1,0 +1,31 @@
+CMakeFiles/lvgl_fb.dir/lvgl/src/extra/libs/gif/gifdec.c.o: \
+ /home/wz/codepath/LVGL/lvgl-arm/lvgl/src/extra/libs/gif/gifdec.c \
+ /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/include/stdc-predef.h \
+ /home/wz/codepath/LVGL/lvgl-arm/lvgl/src/extra/libs/gif/gifdec.h \
+ /home/wz/usr/local/arm/5.4.0/usr/lib/gcc/arm-none-linux-gnueabi/5.4.0/include/stdint.h \
+ /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/include/stdint.h \
+ /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/include/features.h \
+ /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/include/sys/cdefs.h \
+ /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/include/bits/wordsize.h \
+ /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/include/gnu/stubs.h \
+ /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/include/gnu/stubs-soft.h \
+ /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/include/bits/wchar.h \
+ /home/wz/codepath/LVGL/lvgl-arm/lvgl/src/extra/libs/gif/../../../misc/lv_fs.h \
+ /home/wz/codepath/LVGL/lvgl-arm/lvgl/src/extra/libs/gif/../../../misc/../lv_conf_internal.h \
+ /home/wz/codepath/LVGL/lvgl-arm/lvgl/src/extra/libs/gif/../../../misc/../lv_conf_kconfig.h \
+ /home/wz/codepath/LVGL/lvgl-arm/lvgl/lv_conf.h \
+ /home/wz/usr/local/arm/5.4.0/usr/lib/gcc/arm-none-linux-gnueabi/5.4.0/include/stdbool.h \
+ /home/wz/codepath/LVGL/lvgl-arm/lvgl/src/extra/libs/gif/../../../misc/lv_log.h \
+ /home/wz/codepath/LVGL/lvgl-arm/lvgl/src/extra/libs/gif/../../../misc/lv_types.h \
+ /home/wz/codepath/LVGL/lvgl-arm/lvgl/src/extra/libs/gif/../../../misc/lv_mem.h \
+ /home/wz/usr/local/arm/5.4.0/usr/lib/gcc/arm-none-linux-gnueabi/5.4.0/include/stddef.h \
+ /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/include/string.h \
+ /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/include/xlocale.h \
+ /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/include/bits/string.h \
+ /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/include/bits/string2.h \
+ /home/wz/usr/local/arm/5.4.0/usr/arm-none-linux-gnueabi/sysroot/usr/include/stdlib.h \
+ /home/wz/codepath/LVGL/lvgl-arm/lvgl/src/extra/libs/gif/../../../misc/lv_color.h \
+ /home/wz/codepath/LVGL/lvgl-arm/lvgl/src/extra/libs/gif/../../../misc/lv_assert.h \
+ /home/wz/codepath/LVGL/lvgl-arm/lvgl/src/extra/libs/gif/../../../misc/lv_log.h \
+ /home/wz/codepath/LVGL/lvgl-arm/lvgl/src/extra/libs/gif/../../../misc/lv_mem.h \
+ /home/wz/codepath/LVGL/lvgl-arm/lvgl/src/extra/libs/gif/../../../misc/lv_math.h

@@ -1,0 +1,92 @@
+<!--pages/add/add.wxml-->
+<view class="container">
+  <!-- 页面标题 -->
+  <view class="page-header">
+    <text class="page-title">添加患者</text>
+    <text class="page-subtitle">填写患者信息加入候诊队列</text>
+  </view>
+
+  <!-- 表单卡片 -->
+  <view class="form-card card">
+    <!-- 患者编号 -->
+    <view class="form-field">
+      <view class="field-label-row">
+        <text class="field-label">患者编号</text>
+        <text class="field-required">*</text>
+      </view>
+      <input 
+        class="field-input"
+        type="text"
+        placeholder="请输入编号，如 A001"
+        value="{{formData.patientId}}"
+        bindinput="handleInput"
+        data-field="patientId"
+      />
+      <text class="error-text" wx:if="{{errors.patientId}}">{{errors.patientId}}</text>
+    </view>
+
+    <!-- 患者姓名 -->
+    <view class="form-field mt-lg">
+      <view class="field-label-row">
+        <text class="field-label">患者姓名</text>
+        <text class="field-required">*</text>
+      </view>
+      <input 
+        class="field-input"
+        type="text"
+        placeholder="请输入姓名"
+        value="{{formData.name}}"
+        bindinput="handleInput"
+        data-field="name"
+      />
+      <text class="error-text" wx:if="{{errors.name}}">{{errors.name}}</text>
+    </view>
+
+    <!-- 身份证号 -->
+    <view class="form-field mt-lg">
+      <view class="field-label-row">
+        <text class="field-label">身份证号</text>
+        <text class="field-optional">选填</text>
+      </view>
+      <input 
+        class="field-input"
+        type="idcard"
+        placeholder="18位身份证号码"
+        maxlength="18"
+        value="{{formData.idCard}}"
+        bindinput="handleInput"
+        data-field="idCard"
+      />
+      <text class="error-text" wx:if="{{errors.idCard}}">{{errors.idCard}}</text>
+    </view>
+
+    <!-- 年龄 - 重新设计 -->
+    <view class="form-field mt-lg">
+      <view class="field-label-row">
+        <text class="field-label">年龄</text>
+        <text class="field-required">*</text>
+      </view>
+      <view class="age-selector">
+        <button class="age-btn age-btn-minus" bindtap="handleAgeMinus">−</button>
+        <view class="age-display">
+          <text class="age-value">{{formData.age || '—'}}</text>
+          <text class="age-unit">岁</text>
+        </view>
+        <button class="age-btn age-btn-plus" bindtap="handleAgePlus">＋</button>
+      </view>
+      <text class="error-text" wx:if="{{errors.age}}">{{errors.age}}</text>
+    </view>
+  </view>
+
+  <!-- 提示信息 -->
+  <view class="form-helper mt-md">
+    <text class="helper-icon">ℹ️</text>
+    <text class="helper-text">请确保信息准确，提交后将自动加入队列</text>
+  </view>
+
+  <!-- 底部操作按钮 -->
+  <view class="bottom-actions">
+    <button class="btn btn-cancel" bindtap="handleCancel">取消</button>
+    <button class="btn btn-save btn-primary" bindtap="handleSave">保存</button>
+  </view>
+</view>

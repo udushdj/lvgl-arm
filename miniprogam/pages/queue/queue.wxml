@@ -1,0 +1,77 @@
+<!--pages/queue/queue.wxml-->
+<view class="container">
+  <!-- 搜索栏 -->
+  <view class="search-bar card">
+    <text class="search-icon">🔍</text>
+    <input
+      class="search-input"
+      placeholder="搜索患者ID或姓名"
+      bindinput="onSearchInput"
+      value="{{keyword}}"
+    />
+    <button class="search-btn btn-primary" bindtap="onSearch" style="position: relative; left: -11rpx; top: -4rpx; width: 204rpx; display: block; box-sizing: border-box">搜索</button>
+  </view>
+
+  <!-- 工具栏 -->
+  <view class="toolbar card mt-md">
+    <button class="toolbar-btn" bindtap="onSync">
+      <text class="toolbar-icon">🔄</text>
+      <text>同步</text>
+    </button>
+    <button class="toolbar-btn" bindtap="onSort">
+      <text class="toolbar-icon">{{sortAsc ? '⬆️' : '⬇️'}}</text>
+      <text>{{sortLabel}}</text>
+    </button>
+    <button class="toolbar-btn active" bindtap="goAdd">
+      <text class="toolbar-icon">＋</text>
+      <text>添加</text>
+    </button>
+  </view>
+
+  <!-- 患者列表 -->
+  <view class="patient-list mt-md">
+    <block wx:if="{{filteredPatients.length > 0}}">
+      <view 
+        class="patient-card card" 
+        wx:for="{{filteredPatients}}" 
+        wx:key="Patient_ID"
+      >
+        <!-- 编号徽章 -->
+        <view class="patient-number {{index === 0 ? 'active' : ''}}">
+          {{index + 1}}
+        </view>
+
+        <!-- 患者信息 -->
+        <view class="patient-info flex-1">
+          <text class="patient-name text-bold">{{item.name}}</text>
+          <text class="patient-id text-secondary">{{item.Patient_ID}}</text>
+        </view>
+
+        <!-- 操作按钮 -->
+        <view class="patient-actions">
+          <button 
+            class="action-btn" 
+            bindtap="onPin" 
+            data-index="{{index}}"
+          >
+            📌
+          </button>
+          <button 
+            class="action-btn danger" 
+            bindtap="onDelete" 
+            data-index="{{index}}"
+          >
+            🗑️
+          </button>
+        </view>
+      </view>
+    </block>
+
+    <!-- 空状态 -->
+    <view wx:else class="empty-state card">
+      <view class="icon">📋</view>
+      <text>暂无患者</text>
+      <text class="text-secondary mt-sm">点击工具栏添加患者</text>
+    </view>
+  </view>
+</view>
